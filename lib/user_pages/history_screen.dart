@@ -9,7 +9,7 @@ import 'package:cmsapp/user_pages/detail/detail_screen_history.dart'; // Import 
 class HistoryScreen extends StatefulWidget {
   final String user_id;
 
-  const HistoryScreen({Key? key, required this.user_id}) : super(key: key);
+  const HistoryScreen({super.key, required this.user_id});
 
   @override
   _HistoryScreenState createState() => _HistoryScreenState();
