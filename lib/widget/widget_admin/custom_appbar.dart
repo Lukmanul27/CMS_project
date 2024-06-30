@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Color(0xFF6F6FDB),
+        backgroundColor: Color(0xFF4CAF50),
         actions: [
           IconButton(
             icon: Icon(Icons.notifications),

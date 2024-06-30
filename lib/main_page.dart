@@ -1,9 +1,9 @@
-import 'package:cmsapp/Auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cmsapp/Auth/login_screen.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key, Key});
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,9 @@ class WelcomeScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF6F6FDB),
-              Color(0xFF817AA7),
-              Color(0xFF898B8B),
+              Color(0xFF4CAF50), // Green shade for soccer field
+              Color(0xFF388E3C), // Darker green shade for contrast
+              Color(0xFF1B5E20), // Even darker green shade for depth
             ],
           ),
         ),
@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                   style: GoogleFonts.changa(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF141414),
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 100),
@@ -63,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.changa(
                     fontSize: 22,
-                    color: const Color(0xFF141414),
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 100),
@@ -75,8 +75,7 @@ class WelcomeScreen extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

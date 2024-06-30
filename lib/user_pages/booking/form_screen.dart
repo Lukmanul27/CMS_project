@@ -400,59 +400,62 @@ class _FormScreenState extends State<FormScreen>
   }
 
   ElevatedButton _buildSubmitButton(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async {
-        if (_formKey.currentState!.validate()) {
-          _formKey.currentState!.save();
-          try {
-            // Generate a unique form_id
-            _formId = DateTime.now().millisecondsSinceEpoch.toString();
+  return ElevatedButton(
+    onPressed: () async {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        try {
+          // Generate a unique form_id
+          _formId = DateTime.now().millisecondsSinceEpoch.toString();
 
-            // Save booking data to Firestore
-            DocumentReference bookingRef =
-                await FirebaseFirestore.instance.collection('penyewaan').add({
-              'nama': _name,
-              'alamat': _address,
-              'waktu': widget.waktu,
-              'pukul': widget.pukul,
-              'mulai': _startTime,
-              'berakhir': _endTime,
-              'harga': _price,
-              'user_id':
-                  widget.user_id, // Gunakan user_id dari parameter widget
-              'form_id': _formId, // Tambahkan form_id untuk menghubungkan data
-            });
-            String bookingId = bookingRef.id;
+          // Get the current timestamp
+          Timestamp timestamp = Timestamp.now();
 
-            // Navigasi ke layar pembayaran
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PembayaranScreen(
-                  price: _price,
-                  bookingId: bookingId,
-                  user_id: widget.user_id, // Pass user_id to PembayaranScreen
-                  form_id: _formId, // Pass form_id to PembayaranScreen
-                ),
+          // Save booking data to Firestore
+          DocumentReference bookingRef =
+              await FirebaseFirestore.instance.collection('penyewaan').add({
+            'nama': _name,
+            'alamat': _address,
+            'waktu': widget.waktu,
+            'pukul': widget.pukul,
+            'mulai': _startTime,
+            'berakhir': _endTime,
+            'harga': _price,
+            'user_id': widget.user_id, // Use user_id from widget parameter
+            'form_id': _formId, // Add form_id to link the data
+            'timestamp': timestamp, // Add timestamp
+          });
+          String bookingId = bookingRef.id;
+
+          // Navigate to the payment screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PembayaranScreen(
+                price: _price,
+                bookingId: bookingId,
+                user_id: widget.user_id, // Pass user_id to PembayaranScreen
+                form_id: _formId, // Pass form_id to PembayaranScreen
               ),
-            );
-          } catch (e) {
-            // Handle error, e.g., show an error dialog or snackbar
-            print('Error submitting form: $e');
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Error submitting form: $e')),
-            );
-          }
+            ),
+          );
+        } catch (e) {
+          // Handle error, e.g., show an error dialog or snackbar
+          print('Error submitting form: $e');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error submitting form: $e')),
+          );
         }
-      },
-      child: Text(
-        'Submit',
-        style: TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.bold,
-          color: const Color(0xFF6F6FDB),
-        ),
+      }
+    },
+    child: Text(
+      'Submit',
+      style: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        color: const Color(0xFF6F6FDB),
       ),
-    );
+    ),
+  );
   }
 }

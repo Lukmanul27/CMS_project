@@ -84,7 +84,7 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const KelolaUser()),
+                MaterialPageRoute(builder: (context) => KelolaUser()),
               );
             },
           ),

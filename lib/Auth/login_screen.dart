@@ -18,9 +18,9 @@ class LoginPage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF6F6FDB),
-              Color(0xFF817AA7),
-              Color(0xFF898B8B),
+              Color(0xFF4CAF50), // Green shade for soccer field
+              Color(0xFF388E3C), // Darker green shade for contrast
+              Color(0xFF1B5E20), // Even darker green shade for depth
             ],
           ),
         ),
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -125,7 +125,7 @@ class LoginPage extends StatelessWidget {
                       Text(
                         'Belum Punya Akun?',
                         style: TextStyle(
-                          color: Colors.blueGrey[900],
+                          color: Colors.white70,
                           fontSize: 18,
                         ),
                       ),
@@ -136,7 +136,7 @@ class LoginPage extends StatelessWidget {
                         child: const Text(
                           'Buat akun baru',
                           style: TextStyle(
-                            color: Color(0xFF000000),
+                            color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -151,7 +151,7 @@ class LoginPage extends StatelessWidget {
                     child: const Text(
                       'Lupa password?',
                       style: TextStyle(
-                        color: Color(0xFF000000),
+                        color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),

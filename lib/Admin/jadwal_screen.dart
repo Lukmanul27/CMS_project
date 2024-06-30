@@ -66,9 +66,9 @@ class _JadwalScreenState extends State<JadwalScreen> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF6F6FDB),
-              Color(0xFF817AA7),
-              Color(0xFF898B8B),
+              Color(0xFF4CAF50), // Green shade for soccer field
+              Color(0xFF388E3C), // Darker green shade for contrast
+              Color(0xFF1B5E20), // Even darker green shade for depth
             ],
           ),
         ),
